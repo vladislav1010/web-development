@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&display=swap");
+
+@import "base";
+
+:root {
+  --font-sans-serif: "Catamaran", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --border-color-default: currentcolor;
+  --colors-gray-400: #a1a1aa;
+}
+
+.leading-normal {
+  line-height: normal;
+}
+
+.font-sans-serif {
+  font-family: "Catamaran";
+}
+
+.border-2 {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.example-2 {
+  /* font metrics */
+  --font: Catamaran;
+  --fm-capitalHeight: 0.68;
+  --fm-descender: 0.54;
+  --fm-ascender: 1.1;
+  --fm-linegap: 0;
+
+  /* desired font-size for capital height */
+  --capital-height: 100;
+
+  /* apply font-family */
+  font-family: var(--font);
+
+  /* compute font-size to get capital height equal desired font-size */
+  --computedFontSize: (var(--capital-height) / var(--fm-capitalHeight));
+  font-size: calc(var(--computedFontSize) * 1px);
+
+  --lineheightNormal: (
+    var(--fm-ascender) + var(--fm-descender) + var(--fm-linegap)
+  );
+  --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
+
+  --distanceBottom: (var(--fm-descender));
+  --distanceTop: (var(--fm-ascender) - var(--fm-capitalHeight));
+  --valign: (
+    (var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize)
+  );
+
+  /* desired line-height */
+  --line-height: 3;
+  line-height: calc(
+    ((var(--line-height) * var(--capital-height)) - var(--valign)) * 1px
+  );
+  & > span {
+    vertical-align: calc(var(--valign) * -1px);
+    &::before {
+      content: "";
+      display: inline-block;
+      width: calc(1px * var(--capital-height));
+      height: calc(1px * var(--capital-height));
+      margin-right: 10px;
+      background: url("https://www.accuweather.com/images/weathericons/12.svg");
+      background-size: cover;
+    }
+  }
+}
