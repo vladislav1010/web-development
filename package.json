@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "Vladislav Savchenko <vs101ff@gmail.com>",
   "license": "MIT",
-  "browserslist": "> 0.2%",
+  "browserslist": ["> 0.2%"],
   "scripts": {
     "format": "npx prettier --write ."
   },
@@ -12,5 +12,8 @@
     "parcel": "^2.0.0-beta.2",
     "prettier": "^2.2.1",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.0.0"
   }
 }
