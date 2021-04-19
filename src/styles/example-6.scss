@@ -1,0 +1,13 @@
+@import "base";
+
+.container {
+  display: flex;
+  background-color: aqua;
+}
+
+.child {
+  margin-top: 100px;
+  background-color: yellow;
+  height: 300px;
+  width: 100px;
+}
