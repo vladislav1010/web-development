@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/modern-normalize/modern-normalize.css"
+    />
+    <link rel="stylesheet" href="./styles/ex-10.scss" />
+    <style>
+      .flex {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Creating stacking context -->
+
+    <div class="flex">
+      <!-- .el-1 in front of .el-2 -->
+      <!-- TODO: Clarify this situation? Is it consistent across different browsers? -->
+      <div class="el-1" style="z-index: 0">
+        <div style="position: relative; z-index: 1000; background-color: azure">
+          1
+        </div>
+      </div>
+      <div class="el-2" style="margin-left: -100px"></div>
+    </div>
+
+    <!-- Not creating stacking context for .el-1 -->
+    <div class="flex">
+      <div class="el-1" style="z-index: auto">
+        <div style="position: relative; z-index: 1000; background-color: azure">
+          1
+        </div>
+      </div>
+      <div class="el-2" style="margin-left: -100px"></div>
+    </div>
+
+    <div>
+      <div class="el-1" style="opacity: 0.99"></div>
+      <div class="el-2" style="margin-top: -100px"></div>
+    </div>
+
+    <div>
+      <div class="el-1" style="transform: translate3d(0, 0, 0)"></div>
+      <div class="el-2" style="margin-top: -100px"></div>
+    </div>
+
+    <!-- Ups.. `mix-blend-mode: normal` doesn't create new stacking context -->
+    <div>
+      <div class="el-1" style="mix-blend-mode: normal"></div>
+      <div class="el-2" style="margin-top: -100px"></div>
+    </div>
+
+    <div>
+      <div class="el-1" style="mix-blend-mode: multiply"></div>
+      <div class="el-2" style="margin-top: -100px"></div>
+    </div>
+  </body>
+</html>

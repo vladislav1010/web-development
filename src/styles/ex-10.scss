@@ -1,0 +1,19 @@
+@import "base";
+
+.el-1,
+.el-2 {
+  width: 100px;
+  height: 100px;
+}
+
+.el-1 {
+  background-color: greenyellow;
+}
+
+.el-2 {
+  background-color: gold;
+}
+
+body > * + * {
+  margin-top: 30px;
+}
