@@ -1,0 +1,21 @@
+@import "base";
+
+.container {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.item {
+  height: 100px;
+  width: 100px;
+  background-color: slateblue;
+}
+
+.item:nth-child(1) {
+  z-index: 1;
+}
+
+.item:nth-child(2) {
+  background-color: slategray;
+  margin-left: -20px;
+}
