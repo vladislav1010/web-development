@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/modern-normalize/modern-normalize.css"
+    />
+    <link rel="stylesheet" href="./styles/example-8.scss" />
+  </head>
+  <body>
+    <!-- float and clear doesn't work. 
+      Это не внутри flex контейнера, только для прямых дочерних элементов, которые живут внутри flex formatting context.  -->
+    <div class="container">
+      <div class="item" style="float: right">1</div>
+      <div class="item">2</div>
+    </div>
+
+    <!-- Flex items establish their own formatting context. 
+      They contain the top and bottom margins of all elements within it. 
+      These elements won’t collapse with margins of elements outside of the block formatting context 
+      (which is established by the flex child) -->
+    <div class="container" style="background-color: violet">
+      <div class="item">
+        <div style="margin-top: 10px; background-color: chartreuse">1</div>
+      </div>
+    </div>
+
+    <!-- Margin of flex child doesn't collapse with the parent -->
+    <div class="container" style="background-color: violet">
+      <div class="item" style="margin-top: 10px">1</div>
+    </div>
+  </body>
+</html>
