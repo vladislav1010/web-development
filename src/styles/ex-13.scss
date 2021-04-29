@@ -1,0 +1,25 @@
+@import "base";
+
+.content {
+  transition: transform 250ms ease;
+  position: relative;
+  padding: 15px;
+
+  background-color: #fff;
+}
+
+.content::before {
+  position: absolute;
+  z-index: -1;
+
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: slategray;
+  width: 50px;
+}
+
+.content:hover {
+  transform: translateX(15px);
+}
