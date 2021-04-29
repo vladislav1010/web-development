@@ -1,0 +1,15 @@
+@import "base";
+
+.el-1,
+.el-2 {
+  height: 50px;
+  width: 50px;
+}
+
+.el-1 {
+  background-color: cornflowerblue;
+}
+.el-2 {
+  background-color: yellow;
+  margin-top: -50px;
+}

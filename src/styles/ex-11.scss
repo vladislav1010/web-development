@@ -1,0 +1,25 @@
+ul[class] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:root {
+  --spacer: 1.5rem;
+}
+
+.flow-content > * + * {
+  margin-top: var(--flow-space, var(--spacer));
+}
+/*
+.cta {
+  --flow-space: 3rem;
+}
+
+.testimonials {
+  --flow-space: 3rem;
+}*/
+
+.flow-content--lg {
+  --flow-space: 3rem;
+}
